@@ -19,6 +19,7 @@
                 <a class="btn btn-primary rounded shadow-sm fw-bold h4 my-0 text-light" href="{{route('projects.create')}}">Create</a>
             @endauth
         </div>
+
         @if ( $projects )
             <hr class="m-0" style="opacity:0.1;"><br>
             <p class="lead text-secondary">

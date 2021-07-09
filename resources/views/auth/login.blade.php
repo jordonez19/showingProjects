@@ -58,6 +58,8 @@
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
+                                        {{-- Register --}}
+                                        {{-- <a class=" {{request()->routeIs('register') ? 'active' : ''}}" href="{{route('register')}}">  Register </a> --}}
                                     </a>
                                 @endif
                             </div>

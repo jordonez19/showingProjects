@@ -31,13 +31,13 @@
                             </a>
                         </li>
                     @endguest
-
+{{--
                     @guest
                     <li class = "nav-item"> <a class="nav-link  {{request()->routeIs('register') ? 'active' : ''}}" href="{{route('register')}}">  Register </a></li>
                     @else
                     <li class = "nav-item">
                     @endguest
-
+ --}}
                 </ul>
             </div>
 

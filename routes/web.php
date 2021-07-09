@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/contact', 'MessageController@store')->name('messages');
