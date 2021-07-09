@@ -2,9 +2,12 @@
     <nav class="navbar navbar-expand-sm  navbar-light bg-white shadow-sm">
         <div class="container">
 
-            <a class="navbar-brand text-primary fw-bold" href="/">
-                {{ config('app.name') }}
+            <a class="navbar-brand text-primary text-capitalize fw-bold" href="/">
+                @auth
+                    {{auth()->user()->name}}
+                @endauth
             </a>
+
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -17,18 +20,24 @@
                     <li class = "nav-item "><a class="nav-link {{request()->routeIs('about') ? 'active' : ''}}" href="{{route('about')}}"> About </a></li>
                     <li class = "nav-item "><a class="nav-link {{request()->routeIs('contact') ? 'active' : ''}}" href="{{route('contact')}}"> Contact </a></li>
                     <li class = "nav-item "><a class="nav-link {{request()->routeIs('projects.*') ? 'active' : ''}}" href="{{route('projects.index')}}"> Projects </a></li>
-
                     @guest
-                        <li class = "nav-item"> <a class="nav-link  {{request()->routeIs('login') ? 'active' : ''}}" href="{{route('login')}}">  Login </a></li>
+                    <li class = "nav-item"> <a class="nav-link  {{request()->routeIs('login') ? 'active' : ''}}" href="{{route('login')}}">  Login </a></li>
                     @else
-                        <li class = "nav-item">
-                            <a class="nav-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{ route('logout') }}"
+                    <li class = "nav-item">
+                        <a class="nav-link {{request()->routeIs('logout') ? 'active' : ''}}" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                 Log out
                             </a>
                         </li>
                     @endguest
+
+                    @guest
+                    <li class = "nav-item"> <a class="nav-link  {{request()->routeIs('register') ? 'active' : ''}}" href="{{route('register')}}">  Register </a></li>
+                    @else
+                    <li class = "nav-item">
+                    @endguest
+
                 </ul>
             </div>
 

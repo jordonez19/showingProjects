@@ -48,15 +48,14 @@ class ProjectController extends Controller
             'url' => 'required',
             'description' => 'required',
         ]);
+
         $project = Project::create([
             'title' => $request->title,
             'url' => $request->url,
             'description' => $request->description
         ]);
 
-        return redirect()->route('projects.index')->with('status','project has been created succesfully');
-
-
+        return redirect()->route('projects.index',compact('project'))->with('status','project has been created succesfully');
     }
 
     /**

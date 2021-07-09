@@ -16,6 +16,6 @@ class Project extends Model
 
     public function getRouteKeyName()
     {
-        return 'url';
+        return 'title';
     }
 }
